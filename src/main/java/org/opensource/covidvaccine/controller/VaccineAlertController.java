@@ -75,11 +75,13 @@ public class VaccineAlertController {
         for(SessionsResponseModel session: sessionsResponseModelList){
             if(session.getAvailableCapacityDose1() > 0 && session.getMinAgeLimit() == 45
                     && (session.getVaccineName().equalsIgnoreCase("COVISHIELD")) && (session.getFeeType().equalsIgnoreCase("FREE"))){
-                helper.setFrom("riyaz.munsoori@outlook.com");
+                //TODO fetch from EVA vault
+                helper.setFrom("");
                 helper.setSubject("Covid Vaccine Slot Open: Alert");
 
                 System.out.println("Found open slot for Covishield Dose 1 - Creating email alert");
-                helper.setTo(new String[]{"energitiumraju@gmail.com"});
+                //TODO fetch from UI input over HTTPS
+                helper.setTo(new String[]{""});
 
                 helper.setText(getEmailText(session));
                 System.out.println("Sending email alert: ");
